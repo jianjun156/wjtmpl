@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>问卷</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="css/c_mobile.css" rel="stylesheet" type="text/css" />
+
+	<!-- 组件lib 请尽量不要修改 -->
+    <script src="libs/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="libs/am.js" type="text/javascript"></script>
+    <script src="libs/am.events.js" type="text/javascript"></script>
+    <script src="libs/am.debug.js" type="text/javascript"></script>
+    
+    <script src="libs/qst/qst-core.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-sinSelect.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-mutSelect.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-input.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-textarea.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-score.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-sort.js" type="text/javascript"></script>
+    <script src="libs/qst/qst-select.js" type="text/javascript"></script>
+    <!-- 组件lib End 请尽量不要修改 -->
+
+
+	<!-- 业务逻辑 可以修改 -->
+    <script src="scripts/init.js" type="text/javascript"></script>
+    <script src="scripts/imgPreload.js" type="text/javascript"></script>
+	<!-- 业务逻辑 end 可以修改 -->
+
+</head>
+
+<body>
+    <div class="c_container">
+    	
+		<!-- --------------------------------------------------------------------------------------------------------
+			表单头部
+		--------------------------------------------------------------------------------------------------------- -->
+        <div class="c_header">
+            <h1>关于手机操作系统的问卷</h1>
+            <p>此问卷用于研究，不会泄露您的任何隐私， 请您认真填写，谢谢</p>
+        </div>
+        
+        
+        <div class="c_body">
+			<!-- --------------------------------------------------------------------------------------------------------
+				单选题：
+				题目id：			data-id = "question0001"	
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item" data-id="question0001">
+                <div class="c_title">
+                    <div class="c_num">1</div>这是一个单选题
+                </div>
+                <ul class="c_sinSelect">
+                    <li data-id="answer0001">答案A</li>
+                    <li data-id="answer0002">答案B</li>
+                    <li data-id="answer0003">答案C</li>
+                </ul>
+            </div>
+            
+			<!--
+				单选题：
+				题目id：			data-id = "question0001"
+			-->
+            <div class="c_item" data-id="question0002">
+                <div class="c_title">
+                    <div class="c_num">2</div>这是一个单选题 带“其它”选项
+                </div>
+                <ul class="c_sinSelect">
+					<!--
+						答案项id：	data-id = "answer0004"			
+					-->
+                    <li data-id="answer0004" class="selected">答案A</li>
+                    <li data-id="answer0005">答案B</li>
+                    <li data-id="answer0006">答案C</li>
+					<!--
+						其它项id：	data-id = "answer0007"			
+					-->
+                    <li data-id="answer0007" class="c_other">
+                    	<div class="c_other_text">为什么: </div>
+                    	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                    </li>
+                    <li data-id="answer0008" class="c_other">
+                    	<div class="c_other_text">其他: </div>
+                    	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            
+			<!-- --------------------------------------------------------------------------------------------------------
+				多选题：
+				题目id：			data-id = "question0001"
+				最少选中条数：	data-min = number
+				最多选中条数：	data-max = number
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item" data-id="question0003" data-min="2" data-max="4">
+                <div class="c_title">
+                    <div class="c_num">3</div>这是一个多选题
+                </div>
+                <div class="c_msg">[请选择2-4个答案]</div>
+                <ul class="c_mutSelect">
+					<!--
+						答案项id：	data-id = "answer0009"			
+					-->
+                    <li data-id="answer0009" class="selected">答案A</li>
+                    <li data-id="answer0010">答案B</li>
+                    <li data-id="answer0011" class="selected">答案C</li>
+                    <li data-id="answer0012" class="selected">答案D</li>
+                    <li data-id="answer0013" class="selected">答案E</li>
+					<!--
+						其它项id：	data-id = "answer0014"			
+					-->
+                    <li data-id="answer0014" class="c_other">
+                    	<div class="c_other_text">为什么: </div>
+                    	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                    </li>
+                    <li data-id="answer0015" class="c_other">
+                    	<div class="c_other_text">其他: </div>
+                    	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                    </li>
+                </ul>
+            </div>
+                        
+            
+
+			<!-- --------------------------------------------------------------------------------------------------------
+				填空题：
+				题目id：			data-id = "question0001"
+				数据校验类型：	data-type = "email|cellphone|number|letter|chinese"
+				是否必填：		data-required = "true|false"
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item" data-id="question0004" data-type="email" data-required="true">
+                <div class="c_title">
+                    <div class="c_num">4</div>这是一个填空题
+                </div>
+                <div class="c_msg">[请输入邮箱地址]</div>
+                <div class="c_input">
+                    
+                </div>
+            </div>
+            
+			<!--
+				填空题：	
+				题目id：			data-id = "question0001"
+				数据校验类型：	data-type = "cellphone"
+			-->
+            <div class="c_item" data-id="question0005" data-type="cellphone" data-required="true">
+                <div class="c_title">
+                    <div class="c_num">5</div>这是一个填空题
+                </div>
+                <div class="c_msg">[请输入手机号]</div>
+                <div class="c_input">
+                    
+                </div>
+            </div>
+            
+			<!--
+				填空题：	
+				题目id：			data-id = "question0001"
+				数据校验类型：	data-type = "number"
+			-->
+            <div class="c_item" data-id="question0006" data-type="number" data-required="true">
+                <div class="c_title">
+                    <div class="c_num">6</div>这是一个填空题
+                </div>
+                <div class="c_msg">[请输入数字]</div>
+                <div class="c_input">
+                    
+                </div>
+            </div>
+            
+            
+			<!-- --------------------------------------------------------------------------------------------------------
+				多行填空题：	
+				题目id：		data-id = "question0001"
+				是否必填：	data-required = "true|false"
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item" data-id="question0007" data-required="true">
+                <div class="c_title">
+                    <div class="c_num">7</div>这是一个多行填空题
+                </div>
+                <div class="c_textarea">
+                    <textarea placeholder="请输入多行文字"></textarea>
+                </div>
+            </div>
+            
+            
+			<!-- --------------------------------------------------------------------------------------------------------
+				打分题：
+				题目id：		data-id = "question0001"
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item c_score" data-id="question0008">
+                <div class="c_title">
+                    <div class="c_num">8</div>这是一个打分题
+                </div>
+				<!--
+					打分项：
+					打分项id：	data-id = "question0001"
+					最小分数：	data-min = number
+					间隔：		data-step = number
+					步数：		data-num = number
+				-->
+                <ul data-id="score0001" data-min="2" data-step="3" data-num="10">
+                </ul>
+            </div>
+            
+            
+			<!--
+				多项打分题：
+				题目id：		data-id = "question0009"
+			-->
+            <div class="c_item c_score" data-id="question0009">
+                <div class="c_title">
+                    <div class="c_num">9</div>这是一个多项打分题
+                </div>
+                <div class="c_subtitle">
+                	宝贝与描述相符：
+                </div>
+				<!--
+					打分项：
+					打分项id：	data-id = "question0001"
+					最小分数：	data-min = number
+					间隔：		data-step = number
+					步数：		data-num = number
+				-->
+                <ul data-id="score0002" data-min="1" data-step="1" data-num="5">
+                </ul>
+                <div class="c_subtitle">
+                	卖家的服务态度：
+                </div>
+				<!--打分项2-->
+                <ul data-id="score0003" data-min="1" data-step="1" data-num="5">
+                </ul>
+                <div class="c_subtitle">
+                	卖家发货的速度：
+                </div>
+				<!--打分项3-->
+                <ul data-id="score0004" data-min="1" data-step="1" data-num="5">
+                </ul>
+                <div class="c_subtitle">
+                	物流发货的速度：
+                </div>
+				<!--打分项4-->
+                <ul data-id="score0005" data-min="1" data-step="1" data-num="5">
+                </ul>
+                <div class="c_subtitle">
+                	送件人员的态度：
+                </div>
+				<!--打分项5-->
+                <ul data-id="score0006" data-min="1" data-step="1" data-num="5">
+                </ul>
+				<!--
+					其它项id：	data-id = "answer0014"			
+				-->
+                <div data-id="answer0015" class="c_other">
+                	<div class="c_other_text">其他: </div>
+                	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                </div>
+            </div>
+            
+            
+			<!-- --------------------------------------------------------------------------------------------------------
+				排序题：
+				题目id：		data-id = "question0010"
+			--------------------------------------------------------------------------------------------------------- -->
+            
+            <div class="c_item" data-id="question0010">
+                <div class="c_title">
+                    <div class="c_num">10</div>这是一个排序题
+                </div>
+                <div class="c_sortMsg">可拖动进排序</div>
+                <table class="c_sort" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td class="index">
+                            <span>1</span>
+                        </td>
+                        <td class="target">
+							<!--
+								排序项id：	data-id = "option0001"			
+							-->
+                            <div class="li" data-id="option0001">
+                                <div class="item">
+                                    <div class="c_dragable"></div>请拖动元素进行排序A<br />我占两行
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="index">
+                            <span>2</span>
+                        </td>
+                        <td class="target">
+            				<!--排序项2-->
+                            <div class="li" data-id="option0002">
+                                <div class="item">
+                                    <div class="c_dragable"></div>请拖动元素进行排序B
+                                </div>
+                            </div>        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="index">
+                            <span>3</span>
+                        </td>
+                        <td class="target">
+            				<!--排序项3-->
+                            <div class="li" data-id="option0003">
+                                <div class="item">
+                                    <div class="c_dragable"></div>请拖动元素进行排序C
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+				<!--
+					其它项id：	data-id = "option0004"			
+				-->
+                <div data-id="option0004" class="c_other">
+                	<div class="c_other_text">其他: </div>
+                	<div class="c_other_input"><input type="text" value="" placeholder="请输入"></div>
+                </div>
+            </div>
+            
+            
+			<!-- --------------------------------------------------------------------------------------------------------
+				下拉框单选题：
+				题目id：		data-id = "question0011"
+			--------------------------------------------------------------------------------------------------------- -->
+            <div class="c_item" data-id="question0011">
+                <div class="c_title">
+                    <div class="c_num">11</div>这是一个下拉框单选题
+                </div>
+                <div class="c_select">
+                    <div class="arrow"></div>
+                    <div class="text">答案A</div>
+                    <select name="xx">
+                    	<!--选项id在此，注意，这个控件是直接写入value，而不是data-id：-->
+                        <option value="answer0015">答案A</option>
+                        <option value="answer0016">答案B</option>
+                        <option value="answer0017">答案C</option>
+                    </select>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="c_proccess">
+        	<span class="c_button am-clickable" id="submit">提交</span>
+        </div>
+        <div class="c_footer">
+        	<span class="icon"></span>
+        	由<span class="highlight">广问</span>提供技术支持
+        </div>
+    </div>
+</body>
+</html>
